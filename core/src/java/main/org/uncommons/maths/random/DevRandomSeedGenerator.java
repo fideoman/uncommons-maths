@@ -20,20 +20,20 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * RNG seed strategy that gets data from {@literal /dev/random} on systems
- * that provide it (e.g. Solaris/Linux).  If {@literal /dev/random} does not
+ * RNG seed strategy that gets data from {@literal /dev/urandom} on systems
+ * that provide it (e.g. Solaris/Linux).  If {@literal /dev/urandom} does not
  * exist or is not accessible, a {@link SeedException} is thrown.
  * @author Daniel Dyer
  */
 public class DevRandomSeedGenerator implements SeedGenerator
 {
-    private static final File DEV_RANDOM = new File("/dev/random");
+    private static final File DEV_RANDOM = new File("/dev/urandom");
 
     /**
      * {@inheritDoc}
      * @return The requested number of random bytes, read directly from
-     * {@literal /dev/random}.
-     * @throws SeedException If {@literal /dev/random} does not exist or is
+     * {@literal /dev/urandom}.
+     * @throws SeedException If {@literal /dev/urandom} does not exist or is
      * not accessible
      */
     public byte[] generateSeed(int length) throws SeedException
@@ -85,6 +85,6 @@ public class DevRandomSeedGenerator implements SeedGenerator
     @Override
     public String toString()
     {
-        return "/dev/random";
+        return "/dev/urandom";
     }
 }

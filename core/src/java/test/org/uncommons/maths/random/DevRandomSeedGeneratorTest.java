@@ -20,7 +20,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 /**
- * Unit test for the seed generator that reads data from /dev/random (on
+ * Unit test for the seed generator that reads data from /dev/urandom (on
  * platforms that provide it).
  * @author Daniel Dyer
  */
@@ -38,9 +38,9 @@ public class DevRandomSeedGeneratorTest
         catch (SeedException ex)
         {
             // This exception is OK, but only if we are running on a platform that
-            // does not provide /dev/random.
-            assert !new File("/dev/random").exists() : "Seed generator failed even though /dev/random exists.";
-            Reporter.log("/dev/random does not exist on this platform.");
+            // does not provide /dev/urandom.
+            assert !new File("/dev/urandom").exists() : "Seed generator failed even though /dev/urandom exists.";
+            Reporter.log("/dev/urandom does not exist on this platform.");
         }
     }
 }

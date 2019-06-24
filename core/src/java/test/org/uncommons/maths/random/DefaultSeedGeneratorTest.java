@@ -51,7 +51,7 @@ public class DefaultSeedGeneratorTest
 
     /**
      * This security manager allows everything except for some operations that are
-     * explicitly blocked.  These operations are accessing /dev/random and opening
+     * explicitly blocked.  These operations are accessing /dev/urandom and opening
      * a socket connection.
      */
     private static final class RestrictedSecurityManager extends SecurityManager
@@ -59,9 +59,9 @@ public class DefaultSeedGeneratorTest
         @Override
         public void checkRead(String file)
         {
-            if (file.equals("/dev/random"))
+            if (file.equals("/dev/urandom"))
             {
-                throw new SecurityException("Test not permitted to access /dev/random");
+                throw new SecurityException("Test not permitted to access /dev/urandom");
             }
         }
 

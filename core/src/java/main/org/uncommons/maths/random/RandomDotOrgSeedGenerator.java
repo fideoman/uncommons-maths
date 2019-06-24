@@ -29,7 +29,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * website (via HTTPS) and downloads a set of random bits to use as seed data.  It
  * is generally better to use the {@link DevRandomSeedGenerator} where possible,
  * as it should be much quicker. This seed generator is most useful on Microsoft
- * Windows and other platforms that do not provide {@literal /dev/random}.
+ * Windows and other platforms that do not provide {@literal /dev/urandom}.
  * @author Daniel Dyer
  */
 public class RandomDotOrgSeedGenerator implements SeedGenerator
